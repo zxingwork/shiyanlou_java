@@ -1,20 +1,19 @@
-import java.util.ArrayList;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
-public class Test {
-    public void testDemo(List<?> s){
-        for (Object obj:s){
-            System.out.println("我的类型是:"+obj.getClass().getName());
-        }
-    }
-
+public class Test{
     public static void main(String[] args) {
-        Test test = new Test();
-        Dog a0 = new Dog();
-        Animal a1 = new Animal();
-        List<Animal> s = new ArrayList<Animal>();
-        s.add(a0);
-        s.add(a1);
-        test.testDemo(s);
+        List<String>strings = Arrays.asList("efg", "", "abc", "bc", "ghij", "", "lmn");
+
+        long count = strings.stream().filter(string->string.length()==2).count();
+//        System.out.println(count);
+
+        Random random = new Random();
+        random.ints().limit(10).forEach(System.out::print);
+
+        random.ints().limit(10).sorted().forEach(System.out::println);
     }
 }
